@@ -18,7 +18,11 @@ ROBOT_HOME = np.array([0, 0, 0, 1.5708, -0.7854, 1.5708, -0.7854, 1.5708, 1.3100
 def main():
     # needed to find the ur_description package
     xacrodoc.packages.look_in([".."])
-    doc = xacrodoc.XacroDoc.from_file("assets/mm.urdf.xacro")
+    includes = [
+        "$(find mmmwe)/assets/mm.urdf.xacro",
+        "$(find mmmwe)/assets/tray.urdf.xacro",
+    ]
+    doc = xacrodoc.XacroDoc.from_includes(includes)
 
     pyb.connect(pyb.GUI)
     pyb.setTimeStep(SIM_TIMESTEP)

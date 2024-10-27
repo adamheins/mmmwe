@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-This "no-wheel" version of the Thing exists because it is more convenient for
-simulation and some control frameworks.
-
-First, the wheels can cause potentially undesirable collisions with the ground
-in simulation. Since we are typically not controlling the wheels directly (but
-rather the planar twist), we don't want the wheels registered as actuated
-joints.
--->
-
-<robot name="thing_no_wheels" xmlns:xacro="http://wiki.ros.org/xacro">
+<robot name="mobile_manipulator" xmlns:xacro="http://wiki.ros.org/xacro">
   <material name="dark_grey">
     <color rgba="0.2 0.2 0.2 1.0"/>
   </material>
@@ -294,36 +284,5 @@ joints.
     <parent link="ur10_arm_tool0"/>
     <child link="ft_sensor"/>
   </joint>
-
-  <joint name="tray_joint" type="fixed">
-    <origin rpy="0 -1.57079633 3.14159265" xyz="0.035 0 0.31"/>
-    <parent link="gripper"/>
-    <child link="tray"/>
-  </joint>
-
-  <!-- Wood tray -->
-  <xacro:macro name="tray_geometry">
-    <origin rpy="0 0 0" xyz="0 0 -0.01"/>
-    <geometry>
-      <box size="0.285 0.285 0.02" />
-    </geometry>
-  </xacro:macro>
-  <link name="tray">
-    <visual>
-      <xacro:tray_geometry />
-      <material name="black"/>
-    </visual>
-
-    <collision>
-      <xacro:tray_geometry />
-    </collision>
-
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.1"/>
-      <!-- not accurate, but pybullet recomputes this by default -->
-      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
-    </inertial>
-  </link>
 
 </robot>

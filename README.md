@@ -18,7 +18,7 @@ the same place, because the URDF file for the UR10 arm depends on it:
 git clone https://github.com/ros-industrial/universal_robot.git ~
 ```
 
-Head into the directoty and install Python dependencies:
+Now head into the directory and install Python dependencies:
 ```
 cd ~/mmmwe
 pip install -r requirements.txt

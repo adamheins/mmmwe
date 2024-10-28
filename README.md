@@ -26,6 +26,6 @@ pip install -r requirements.txt
 
 ## Usage
 
-A simple example script is provided in `example.py`, which loads the robot a
-executes a simple inverse kinematics control loop to read a desired position
+A simple example script is provided in `example.py`, which loads the robot and
+executes a simple inverse kinematics control loop to reach a desired position
 with the end effector.
